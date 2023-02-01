@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Board</title>
+    <style>
+        .box,h3{
+            width: 400px;
+            margin: 10px 20px;
+
+        }
+       
+        .center {
+            border-bottom:2px solid gray;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .bottomright {
+          text-align: right;
+          font-size: 12px;
+        }
+         
+    </style>
+</head>
+<body>
+
+    <form action="/w" method="POST">
+        <div class="box"> 暱稱<input type="text" name="name"/><br/></div>
+        <div class="box"> 訊息<textarea type="text" name="message" row="10" cols="50"></textarea><br/></div>
+        <div class="box"><button>輸入</button></div>         
+    </form>
+<h3>留言板</h3>
+<div class="box" style="background-color: whitesmoke;">
+    <% for(let i=data.length-1;i>=0;i--){ %>
+        <div class="center">
+             <%= data[i].message %>
+                <div class="bottomright">
+                     <%= data[i].name %>
+                     <%= data[i].date %>
+                </div>
+        </div>    
+
+    <%}%>
+</div>    
+</body>
+</html>
